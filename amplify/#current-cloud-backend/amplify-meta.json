@@ -1,15 +1,15 @@
 {
 	"providers": {
 		"awscloudformation": {
-			"AuthRoleName": "amplify-amplifyauthdemo-dev-133139-authRole",
-			"UnauthRoleArn": "arn:aws:iam::977740282869:role/amplify-amplifyauthdemo-dev-133139-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::977740282869:role/amplify-amplifyauthdemo-dev-133139-authRole",
+			"AuthRoleName": "amplify-amplifyauthdemo-dev-160650-authRole",
+			"UnauthRoleArn": "arn:aws:iam::977740282869:role/amplify-amplifyauthdemo-dev-160650-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::977740282869:role/amplify-amplifyauthdemo-dev-160650-authRole",
 			"Region": "eu-west-1",
-			"DeploymentBucketName": "amplify-amplifyauthdemo-dev-133139-deployment",
-			"UnauthRoleName": "amplify-amplifyauthdemo-dev-133139-unauthRole",
-			"StackName": "amplify-amplifyauthdemo-dev-133139",
-			"StackId": "arn:aws:cloudformation:eu-west-1:977740282869:stack/amplify-amplifyauthdemo-dev-133139/272ca040-b872-11ea-8d1a-0659495bde12",
-			"AmplifyAppId": "diai5y751rzvp"
+			"DeploymentBucketName": "amplify-amplifyauthdemo-dev-160650-deployment",
+			"UnauthRoleName": "amplify-amplifyauthdemo-dev-160650-unauthRole",
+			"StackName": "amplify-amplifyauthdemo-dev-160650",
+			"StackId": "arn:aws:cloudformation:eu-west-1:977740282869:stack/amplify-amplifyauthdemo-dev-160650/d513c5c0-b887-11ea-a458-069d5f57c92e",
+			"AmplifyAppId": "d2jqa0j72pxzzu"
 		}
 	},
 	"auth": {
@@ -18,18 +18,18 @@
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [],
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifyauthdemo-dev-133139-deployment/amplify-cfn-templates/auth/amplifyAuthDemo-cloudformation-template.yml",
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifyauthdemo-dev-160650-deployment/amplify-cfn-templates/auth/amplifyAuthDemo-cloudformation-template.yml",
 				"logicalId": "authamplifyAuthDemo"
 			},
-			"lastPushTimeStamp": "2020-06-27T12:40:35.146Z",
+			"lastPushTimeStamp": "2020-06-27T15:14:46.059Z",
 			"output": {
-				"AppClientSecret": "l5aepqinms2711dd9lou79shu4r0nng4an1m97hgi0fb8t7klm6",
-				"UserPoolId": "eu-west-1_J29qzbR5M",
-				"AppClientIDWeb": "54ckqeevfkjvvcd0vj6okbusq6",
-				"AppClientID": "13q0u13vu8jqqrb38n96crqjii",
+				"AppClientSecret": "8a2llcfglvcck36i9doua8ui39n2adpo53iejtr887qofemb2e5",
+				"UserPoolId": "eu-west-1_peSzL3aau",
+				"AppClientIDWeb": "1mnpu61vce6opcmto6vnorohe5",
+				"AppClientID": "7sm6j4sbd7toqaerd1adp0tbo4",
 				"UserPoolName": "amplify_auth_demo_user_pool"
 			},
-			"lastPushDirHash": "JvqJZErrvi5VDlW9MzFfj6f1hQw="
+			"lastPushDirHash": "CyfDEd1sL1QGENfgnpbb9NQG8TA="
 		}
 	}
 }

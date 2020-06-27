@@ -71,9 +71,9 @@
 		"authamplifyAuthDemo": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/amplify-amplifyauthdemo-dev-133139-deployment/amplify-cfn-templates/auth/amplifyAuthDemo-cloudformation-template.yml",
+				"TemplateURL": "https://s3.amazonaws.com/amplify-amplifyauthdemo-dev-160650-deployment/amplify-cfn-templates/auth/amplifyAuthDemo-cloudformation-template.yml",
 				"Parameters": {
-					"resourceNameTruncated": "amplif6636d955",
+					"resourceNameTruncated": "amplif5ad39a30",
 					"userPoolName": "amplify_auth_demo_user_pool",
 					"autoVerifiedAttributes": "email",
 					"mfaConfiguration": "OFF",
@@ -90,12 +90,11 @@
 					"userpoolClientRefreshTokenValidity": 30,
 					"userpoolClientWriteAttributes": "email",
 					"userpoolClientReadAttributes": "email",
-					"userpoolClientLambdaRole": "amplif6636d955_userpoolclient_lambda_role",
+					"userpoolClientLambdaRole": "amplif5ad39a30_userpoolclient_lambda_role",
 					"userpoolClientSetAttributes": false,
 					"useDefault": "manual",
 					"authSelections": "userPoolOnly",
 					"resourceName": "amplifyAuthDemo",
-					"usernameAttributes": "email",
 					"userPoolGroups": false,
 					"adminQueries": false,
 					"triggers": "{}",
