@@ -1,12 +1,15 @@
 import React from 'react'
 import { Auth } from 'aws-amplify'
+import { useHistory } from 'react-router-dom'
 
-//form components
+//Components
 import { Form, Input, Button, Layout } from 'antd'
 
 const { Content } = Layout; 
 
-export default () => {
+export default ({setUsername}) => {
+
+    let history = useHistory();
 
     const layout = {
         labelCol: {
@@ -33,7 +36,9 @@ export default () => {
                      // other custom attributes 
                 }
             });
-            console.log({ user });
+            console.log(user);
+            setUsername(user.user.username)
+            history.push('/confirmation')
         } catch (error) {
             console.log('error signing up:', error);
         }
@@ -41,13 +46,12 @@ export default () => {
 
 
     const onFinish = values => {
-        console.log(values)
         signUp(values)
     }
 
     return (
         <Layout>
-            <Content>
+            <Content style={{padding: '40px'}}>
                 <Form
                     {...layout}
                     name='SignUp'
