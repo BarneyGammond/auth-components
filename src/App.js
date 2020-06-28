@@ -35,7 +35,9 @@ function App() {
                 />
             </Route>
             <Route path='/signin'>
-                <SignInContainer />
+                <SignInContainer 
+                    setUsername={setUsername}
+                />
             </Route>
         </Router>
     );

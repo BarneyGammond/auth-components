@@ -3,9 +3,13 @@ import { Auth } from 'aws-amplify'
 import { useHistory } from 'react-router-dom'
 
 //components
-import { Button } from 'antd'
+import { Typography, Layout, Button } from 'antd'
 
 export default () => {
+
+    const { Content } = Layout
+
+    const { Title } = Typography
 
     const history = useHistory()
 
@@ -13,7 +17,9 @@ export default () => {
 
     const getUserData = async () => {
         const user = await Auth.currentUserInfo();
-        setUserData(user.username)
+        if (user) {
+            setUserData(user.username)
+        }
     }
 
     async function signOut() {
@@ -35,14 +41,16 @@ export default () => {
     },[])
 
     return (
-        <>
-            <p>{userData}</p>
-            <Button 
-                onClick={logout}
-            >
-                Logout
-            </Button>
-        </>
+        <Layout >
+            <Content style={{padding: '40px'}}>
+                <Title level={2}>{userData}</Title>
+                <Button 
+                    onClick={logout}
+                >
+                    Logout
+                </Button>
+            </Content>
+        </Layout>
     )
 
 }

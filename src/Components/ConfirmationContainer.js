@@ -3,13 +3,13 @@ import { Auth } from 'aws-amplify'
 import { useHistory } from 'react-router-dom'
 
 //Components
-import { Form, Input, Button, Layout } from 'antd'
+import { Divider, Form, Input, Button, Layout } from 'antd'
 
 const { Content } = Layout
 
 export default ({username}) => {
 
-    const history = useHistory
+    const history = useHistory()
 
     const layout = {
         labelCol: {
@@ -29,7 +29,6 @@ export default ({username}) => {
     async function confirmSignUp({code}) {
         try {
           await Auth.confirmSignUp(username, code);
-          console.log(Auth.currentUserInfo)
           history.push('/signin')
         } catch (error) {
             console.log('error confirming sign up', error);
@@ -39,6 +38,9 @@ export default ({username}) => {
     return (
         <Layout>
             <Content style={{padding: '40px'}}>
+                <h2>Account needs to be confirmed</h2>
+                <h3>A code has been sent to the associated email</h3>
+                <Divider />
                 <Form
                     {...layout}
                     name='Confirmation'

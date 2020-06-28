@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Auth } from 'aws-amplify'
 import { useHistory } from 'react-router-dom'
 
 //Components
-import { Form, Input, Button, Layout } from 'antd'
+import { Space, Alert, Form, Input, Button, Layout } from 'antd'
 
 const { Content } = Layout
 
-export default () => {
+export default ({setUsername}) => {
+
+    const [error,setError] = useState(null)
 
     const history = useHistory()
 
@@ -33,6 +35,13 @@ export default () => {
             history.push('/')
         } catch (error) {
             console.log('error signing in', error);
+            if (error.code === "UserNotConfirmedException") {
+                setUsername(username)
+                Auth.resendSignUp(username)
+                history.push('/confirmation')
+            } else {
+                setError(error.message)
+            }
         }
     }
 
@@ -43,6 +52,8 @@ export default () => {
     return (
         <Layout>
             <Content style={{padding: '40px'}}>
+                <Space direction='vertical' style={{width: '100%'}} size={25}>
+                {error ? <Alert message={error} type='error'/> : null}
                 <Form
                     {...layout}
                     name='SignUp'
@@ -65,6 +76,7 @@ export default () => {
                         <Button type='primary' htmlType='submit'>Submit</Button>
                     </Form.Item>
                 </Form>
+                </Space>
             </Content>
         </Layout>
     )
