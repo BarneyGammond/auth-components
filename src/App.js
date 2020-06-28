@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
@@ -8,27 +8,33 @@ import './App.css';
 
 //Components
 import SignUpContainer from './Components/SignUpContainer.js'
-import ConfirmationContainer from  './Components/ConfirmationContainer'
+import ConfirmationContainer from './Components/ConfirmationContainer'
+import SignInContainer from './Components/SignInContainer'
 
 
 Amplify.configure(awsconfig);
 
 function App() {
 
-  const [username,setUsername] = useState('')
+    const [username, setUsername] = useState('')
 
-  return (
-    <Router>
-      <Route path='/signup'>
-        <SignUpContainer 
-          setUsername={setUsername}
-        />
-      </Route>
-      <Route path='/confirmation'>
-        <ConfirmationContainer />
-      </Route>
-    </Router>
-  );
+    return (
+        <Router>
+            <Route path='/signup'>
+                <SignUpContainer
+                    setUsername={setUsername}
+                />
+            </Route>
+            <Route path='/confirmation'>
+                <ConfirmationContainer
+                    username={username}
+                />
+            </Route>
+            <Route path='/signin'>
+                <SignInContainer />
+            </Route>
+        </Router>
+    );
 }
 
 export default App;

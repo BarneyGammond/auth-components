@@ -1,15 +1,12 @@
 import React from 'react'
 import { Auth } from 'aws-amplify'
-import { useHistory } from 'react-router-dom'
 
 //Components
 import { Form, Input, Button, Layout } from 'antd'
 
-const { Content } = Layout; 
+const { Content } = Layout
 
-export default ({setUsername}) => {
-
-    let history = useHistory();
+export default () => {
 
     const layout = {
         labelCol: {
@@ -26,27 +23,17 @@ export default ({setUsername}) => {
         },
     };
 
-    async function signUp({username,password,email}) {
+    async function SignIn({username,password}) {
         try {
-            const user = await Auth.signUp({
-                username,
-                password,
-                attributes: {
-                    email, // optional
-                     // other custom attributes 
-                }
-            });
-            console.log(user);
-            setUsername(user.user.username)
-            history.push('/confirmation')
+            const user = await Auth.signIn(username, password);
+            console.log(user)
         } catch (error) {
-            console.log('error signing up:', error);
+            console.log('error signing in', error);
         }
     }
 
-
-    const onFinish = values => {
-        signUp(values)
+    const onFinish = (values) => {
+        SignIn(values)
     }
 
     return (
@@ -63,17 +50,13 @@ export default ({setUsername}) => {
                     >
                         <Input />
                     </Form.Item>
-                    <Form.Item
-                        label='Email Address'
-                        name='email'
-                    >
-                        <Input />
-                    </Form.Item>
+                    
                     <Form.Item
                         label='Password'
                         name='password'>
                         <Input.Password />
                     </Form.Item>
+
                     <Form.Item {...tailLayout}>
                         <Button type='primary' htmlType='submit'>Submit</Button>
                     </Form.Item>
@@ -82,3 +65,4 @@ export default ({setUsername}) => {
         </Layout>
     )
 }
+
