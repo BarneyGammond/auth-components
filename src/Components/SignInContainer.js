@@ -1,5 +1,6 @@
 import React from 'react'
 import { Auth } from 'aws-amplify'
+import { useHistory } from 'react-router-dom'
 
 //Components
 import { Form, Input, Button, Layout } from 'antd'
@@ -7,6 +8,8 @@ import { Form, Input, Button, Layout } from 'antd'
 const { Content } = Layout
 
 export default () => {
+
+    const history = useHistory()
 
     const layout = {
         labelCol: {
@@ -27,6 +30,7 @@ export default () => {
         try {
             const user = await Auth.signIn(username, password);
             console.log(user)
+            history.push('/')
         } catch (error) {
             console.log('error signing in', error);
         }

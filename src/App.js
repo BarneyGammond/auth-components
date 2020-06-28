@@ -10,6 +10,7 @@ import './App.css';
 import SignUpContainer from './Components/SignUpContainer.js'
 import ConfirmationContainer from './Components/ConfirmationContainer'
 import SignInContainer from './Components/SignInContainer'
+import LoggedInPage from './Components/LoggedInPage'
 
 
 Amplify.configure(awsconfig);
@@ -20,6 +21,9 @@ function App() {
 
     return (
         <Router>
+            <Route exact path='/'>
+                <LoggedInPage />
+            </Route>
             <Route path='/signup'>
                 <SignUpContainer
                     setUsername={setUsername}
