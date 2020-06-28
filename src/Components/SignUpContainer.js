@@ -1,13 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Auth } from 'aws-amplify'
 import { useHistory } from 'react-router-dom'
 
 //Components
-import { Form, Input, Button, Layout } from 'antd'
+import { Space, Alert, Form, Input, Button, Layout } from 'antd'
 
 const { Content } = Layout; 
 
 export default ({setUsername}) => {
+
+    const [error,setError] = useState(null)
 
     let history = useHistory();
 
@@ -41,6 +43,7 @@ export default ({setUsername}) => {
             history.push('/confirmation')
         } catch (error) {
             console.log('error signing up:', error);
+            setError(error.message)
         }
     }
 
@@ -52,32 +55,35 @@ export default ({setUsername}) => {
     return (
         <Layout>
             <Content style={{padding: '40px'}}>
-                <Form
-                    {...layout}
-                    name='SignUp'
-                    onFinish={onFinish}
-                >
-                    <Form.Item
-                        label='Username'
-                        name='username'
+                <Space direction='vertical' style={{width: '100%'}} size={25}>
+                    {error ? <Alert message={error} type='error'/> : null}
+                    <Form
+                        {...layout}
+                        name='SignUp'
+                        onFinish={onFinish}
                     >
-                        <Input />
-                    </Form.Item>
-                    <Form.Item
-                        label='Email Address'
-                        name='email'
-                    >
-                        <Input />
-                    </Form.Item>
-                    <Form.Item
-                        label='Password'
-                        name='password'>
-                        <Input.Password />
-                    </Form.Item>
-                    <Form.Item {...tailLayout}>
-                        <Button type='primary' htmlType='submit'>Submit</Button>
-                    </Form.Item>
-                </Form>
+                        <Form.Item
+                            label='Username'
+                            name='username'
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item
+                            label='Email Address'
+                            name='email'
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item
+                            label='Password'
+                            name='password'>
+                            <Input.Password />
+                        </Form.Item>
+                        <Form.Item {...tailLayout}>
+                            <Button type='primary' htmlType='submit'>Submit</Button>
+                        </Form.Item>
+                    </Form>
+                </Space>
             </Content>
         </Layout>
     )
