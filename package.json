@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^7.2.1",
     "@types/react-router-dom": "^5.1.5",
     "antd": "^4.3.5",
-    "aws-amplify": "^3.0.18",
+    "aws-amplify": "^6.15.10",
     "jwt-decode": "^2.2.0",
     "password-validator": "^5.0.3",
     "react": "^16.13.1",
